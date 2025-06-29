@@ -1,6 +1,8 @@
 const { app, BrowserWindow } = require('electron/main')
 const path = require('node:path')
-
+if (require('electron-squirrel-startup')) {
+    app.quit(); // 如果是安装阶段的临时启动，直接退出
+  }
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
